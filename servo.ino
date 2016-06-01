@@ -52,12 +52,12 @@ void loop() {
   r3 = read(POT3,r3);
   r4 = read(POT4,r4);
   
-  v1=map(1023-r1,0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
+  v1=map(r1,0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
   v2=map(r2,0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
-  if(r4<500){
+  if(r4>500){
     v3=map(1023-r3,0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
   }else{
-    v3=map(r2+r3,0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
+    v3=map(r2-(r3-1023),0,1023,MIN_PULSE_WIDTH,MAX_PULSE_WIDTH);
   }
   
 
@@ -79,5 +79,4 @@ void loop() {
   //Serial.print(r4);
   //Serial.println();
 }
-
 
